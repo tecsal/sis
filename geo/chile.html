@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comunas de Chile</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: -22.3, lng: -70.1}
+        });
+
+        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/I.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/II.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/III.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/IV.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/V.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/VI.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/VII.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/VIII.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/IX.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/X.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XI.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XII.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XII.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XIV.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XV.json');
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7FkrjbaW0WPSJqUtuXgu2swKO8vtWpUU&callback=initMap">
+    </script>
+  </body>
+</html>
