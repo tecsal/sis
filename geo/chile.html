@@ -26,9 +26,20 @@
           center: {lat: -22.3, lng: -70.1}
         });
 
+        map.data.setStyle({
+			fillColor: 'green',
+       		strokeWeight: 1
+       	});
+        map.data.setStyle(function(feature) {
+            var shape = feature.getProperty('shape');
+            return $.parseJSON( shape );
+        });
+       
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/I.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/II.json');
+        
+        /*
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/III.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/IV.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/V.json');
@@ -41,7 +52,7 @@
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/XII.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/XII.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/XIV.json');
-        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XV.json');
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/XV.json');*/
 
       }
     </script>
