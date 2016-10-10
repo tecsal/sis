@@ -41,8 +41,9 @@
       //
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -22.3, lng: -70.1}
+          zoom: 4+3,
+          // ,
+          center: { lat: -33.4285224, lng: -71.1285645 }
         });
 
 
@@ -50,7 +51,7 @@
             var name = feature.getProperty('name');
             var area = feature.getProperty('area') ;
             var center = getBounds( feature.getGeometry() ).getCenter();
-            var color = colors[ area ] || 'white';
+            var color = "RM" === area ? "white" : ( colors[ area ] || 'white' );
             new google.maps.Marker({
                 position: center,
                // map: map,
@@ -67,13 +68,17 @@
 				strokeWeight: 1
 			};
         });
-       
+
         var colors = {};
-		$.each(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'IX', 'X', 'XI', 'XII', 'RM', 'XIV', 'XV'], function(i, name){
-			colors[name] = fillColors.pick();
-	        map.data.loadGeoJson('http://cdn.ziz.cl/geo/'+name+'.json');
-			
-		});
+        setTimeout(function(){
+	        //$.each(['V'], function(i, name){
+	    	$.each(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'RM', 'XIV', 'XV'], function(i, name){
+				colors[name] = fillColors.pick();
+		        map.data.loadGeoJson('http://cdn.ziz.cl/geo/'+name+'.json');
+				
+			});
+    	}, 1000);
+    
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
         /*
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/I.json');fillColors.pick();
