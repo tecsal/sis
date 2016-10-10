@@ -19,28 +19,68 @@
   <body>
     <div id="map"></div>
     <script>
+    
+    	var getBounds = function( geo ) {
 
-      var map;
+    		var bounds = new google.maps.LatLngBounds();
+    		
+    		geo.forEachLatLng(function( latLng ){
+    			bounds.extend( latLng );
+    		});
+    		
+    		return bounds;
+    	}
+    	
+      var map, color;
+      var fillColors = ['black', 'grey', 'red', 'green', 'blue'];
+      fillColors.pick = function(){
+    	  fillColors._index = ( fillColors._index ||  0) + 1;
+    	  color = fillColors[ fillColors._index % fillColors.length ]; 
+    	  return color;
+      };
+      fillColors.pick();
+      //
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: {lat: -22.3, lng: -70.1}
         });
 
-        map.data.setStyle({
-			fillColor: 'green',
-       		strokeWeight: 1
-       	});
+
         map.data.setStyle(function(feature) {
-            var shape = feature.getProperty('shape');
-            return $.parseJSON( shape );
+            var name = feature.getProperty('layer').data.name;
+            var center = getBounds( feature.getGeometry() ).getCenter();
+            var color = fillColors.pick();
+            new google.maps.Marker({
+                position: center,
+                map: map,
+                title: name,
+           		strokeColor: color,
+	          	icon: {
+		              path: google.maps.SymbolPath.CIRCLE,
+		              scale: 2
+		            }
+              });
+            
+           	return { 
+           		strokeColor: color,
+           		fillColor: color,
+				strokeWeight: 1
+			};
         });
        
+        var colors = {};
+		$.each(['I', 'II', 'III', 'IV', 'V'], function(i, name){
+			colors[name] = fillColors.pick();
+	        map.data.loadGeoJson('http://cdn.ziz.cl/geo/'+name+'.json');
+			
+		});
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-        map.data.loadGeoJson('http://cdn.ziz.cl/geo/I.json');
-        map.data.loadGeoJson('http://cdn.ziz.cl/geo/II.json');
-        
         /*
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/I.json');fillColors.pick();
+        map.data.loadGeoJson('http://cdn.ziz.cl/geo/II.json');fillColors.pick();
+        
+        
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/III.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/IV.json');
         map.data.loadGeoJson('http://cdn.ziz.cl/geo/V.json');
