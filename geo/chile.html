@@ -48,9 +48,9 @@
 
         map.data.setStyle(function(feature) {
             var name = feature.getProperty('name');
-            var region = ( feature.getProperty('region') || feature.getProperty('id')).replace(/\_.*/, '') ;
+            var area = feature.getProperty('area') ;
             var center = getBounds( feature.getGeometry() ).getCenter();
-            var color = colors[ region ] || 'white';
+            var color = colors[ area ] || 'white';
             new google.maps.Marker({
                 position: center,
                // map: map,
