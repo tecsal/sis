@@ -19,7 +19,7 @@
   <body>
     <div id="map"></div>
     <script>
-    
+    	var baseUrl = '/sis';
     	var getBounds = function( geo ) {
 
     		var bounds = new google.maps.LatLngBounds();
@@ -74,7 +74,7 @@
 	        //$.each(['V'], function(i, name){
 	    	$.each(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'RM', 'XIV', 'XV'], function(i, name){
 				colors[name] = fillColors.pick();
-		        map.data.loadGeoJson('/geo/'+name+'.json');
+		        map.data.loadGeoJson(baseUrl+'/geo/'+name+'.json');
 				
 			});
     	}, 1000);
