@@ -4,7 +4,7 @@
     <title>Comunas de Chile</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <script   src="http://code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
+    <script   src="//code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
     <style>
       html, body {
         height: 100%;
@@ -74,7 +74,7 @@
 	        //$.each(['V'], function(i, name){
 	    	$.each(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'RM', 'XIV', 'XV'], function(i, name){
 				colors[name] = fillColors.pick();
-		        map.data.loadGeoJson('http://cdn.ziz.cl/geo/'+name+'.json');
+		        map.data.loadGeoJson('/geo/'+name+'.json');
 				
 			});
     	}, 1000);
@@ -102,7 +102,7 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7FkrjbaW0WPSJqUtuXgu2swKO8vtWpUU&callback=initMap">
+    src="//maps.googleapis.com/maps/api/js?key=AIzaSyA7FkrjbaW0WPSJqUtuXgu2swKO8vtWpUU&callback=initMap">
     </script>
   </body>
 </html>
