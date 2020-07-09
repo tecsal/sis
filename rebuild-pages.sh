@@ -10,5 +10,6 @@ cd ~/workspace/sis/sis-cdn/
 
 
 git commit -m 'rebuild pages' --allow-empty
+git pull origin master
 git push origin master
 
