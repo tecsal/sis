@@ -8,8 +8,8 @@ cd ~/workspace/sis/sis-cdn/
 #git config user.name $username
 
 
-
+git add .
 git commit -m 'rebuild pages' --allow-empty
-git pull origin master
+#git pull origin master
 git push origin master
 
