@@ -7,9 +7,10 @@ cd ~/workspace/sis/sis-cdn/
 #git config user.email $email
 #git config user.name $username
 
-git status
 git add .
-git commit -m 'rebuild pages' --allow-empty
+git status
+#git add .
+git commit --allow-empty
 #git pull origin master
 git push origin master
 
