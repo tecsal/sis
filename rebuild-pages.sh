@@ -9,8 +9,8 @@ cd ~/workspace/sis/sis-cdn/
 
 git add .
 git status
-#git add .
+# git add .
 git commit --allow-empty
-#git pull origin master
+# git pull origin master
 git push origin master
 
