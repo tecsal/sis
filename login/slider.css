@@ -112,11 +112,11 @@
 }
 .cb-slideshow li:nth-child(9) span { 
     background-image: url(slides/9.jpg);
-    -webkit-animation-delay: 30s;
-    -moz-animation-delay: 30s;
-    -o-animation-delay: 30s;
-    -ms-animation-delay: 30s;
-    animation-delay: 30s; 
+    -webkit-animation-delay: 48s;
+    -moz-animation-delay: 48s;
+    -o-animation-delay: 48s;
+    -ms-animation-delay: 48s;
+    animation-delay: 48s; 
 }
 .cb-slideshow li:nth-child(2) div { 
     -webkit-animation-delay: 6s;
