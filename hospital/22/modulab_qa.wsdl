@@ -19,7 +19,6 @@
 			<xsd:import
 				namespace="http://ws.connectors.connect.mirth.com/"
 				schemaLocation="https://tecsal.github.io/sis/hospital/22/sis.xsd" />
-				<!-- http://127.0.0.1:8090/services/sis?xsd=1 -->
 		</xsd:schema>
 	</types>
 	<message name="acceptMessage">
@@ -55,7 +54,7 @@
 	<service name="DefaultAcceptMessageService">
 		<port name="DefaultAcceptMessagePort"
 			binding="tns:DefaultAcceptMessagePortBinding">
-			<soap:address location="http://127.0.0.1:8090/services/sis" />
+			<soap:address location="http://200.68.17.194:8092/services/sis" />
 		</port>
 	</service>
 </definitions>
