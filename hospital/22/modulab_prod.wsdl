@@ -54,7 +54,7 @@
 	<service name="DefaultAcceptMessageService">
 		<port name="DefaultAcceptMessagePort"
 			binding="tns:DefaultAcceptMessagePortBinding">
-			<soap:address location="http://127.0.0.1:8090/services/sis" />
+			<soap:address location="http://200.68.17.194:8093/services/sis" />
 		</port>
 	</service>
 </definitions>
