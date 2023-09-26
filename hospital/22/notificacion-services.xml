@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://sis.tecsal.cl/" name="NotificacionModulabServices" targetNamespace="http://sis.tecsal.cl/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sis.tecsal.cl/" elementFormDefault="unqualified" targetNamespace="http://sis.tecsal.cl/" version="1.0">
+
+  <xs:element name="acceptMessage" type="tns:acceptMessage"/>
+
+  <xs:element name="acceptMessageResponse" type="tns:acceptMessageResponse"/>
+
+  <xs:complexType name="acceptMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="acceptMessageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="acceptMessage">
+    <wsdl:part element="ns1:acceptMessage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="acceptMessageResponse">
+    <wsdl:part element="ns1:acceptMessageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="NotificacionModulabServices">
+    <wsdl:operation name="acceptMessage">
+      <wsdl:input message="ns1:acceptMessage" name="acceptMessage">
+    </wsdl:input>
+      <wsdl:output message="ns1:acceptMessageResponse" name="acceptMessageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

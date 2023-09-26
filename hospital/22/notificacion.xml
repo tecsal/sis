@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://modulab.lis.ws.api.action.sis.tomisa.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://sis.tecsal.cl/" name="NotificacionModulabServicesImplService" targetNamespace="http://modulab.lis.ws.api.action.sis.tomisa.cl/">
+  <wsdl:import location="notificacion-services.xml" namespace="http://sis.tecsal.cl/">
+    </wsdl:import>
+  <wsdl:binding name="NotificacionModulabServicesImplServiceSoapBinding" type="ns1:NotificacionModulabServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="acceptMessage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="acceptMessage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="acceptMessageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificacionModulabServicesImplService">
+    <wsdl:port binding="tns:NotificacionModulabServicesImplServiceSoapBinding" name="NotificacionModulabServicesImplPort">
+      <soap:address location="https://api.clinicaucm.ziz.cl/api/ws/lis/modulab/notificacion"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
